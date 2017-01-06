@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/static/js/materialize.min.js"></script>
+    <script src="/static/js/alertify.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/alertify.min.css') }}">
+    <script>
+         var bindClick =function () {
+             $('nav').on('click', 'a', function(){
+             if ($(this).hasClass('dropdown-button')){
+                 $(this).parent().removeClass('active');
+                 return false
+             }
+             $('li').removeClass('active');
+             $(this).parent().addClass('active')
+            });
+         };
+         $(document).ready(function () {
+           bindClick();
+           $(".dropdown-button").dropdown({ hover: true });
+        })
+    </script>
+    <title>{% block title %}base{% endblock title %}</title>
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#profile">个人中心</a></li>
+        <li><a href="/signout">登出</a></li>
+    </ul>
+    <nav>
+    <div class="nav-wrapper teal">
+    <a href="#" class="brand-logo">Tree New Bee</a>
+    <ul class="right">
+      <li><a href="#1">标签</a></li>
+      <li><a href="#2">按钮</a></li>
+      <li><a href="#3">页脚</a></li>
+      <li><a class="dropdown-button" href="#" data-activates="dropdown1">zxiaobai
+           <img style="height:64px;width:64px;margin-left:10px;margin-right:-15px;" src="https://avatars3.githubusercontent.com/u/22194525?v=3&u=d0fb041a57c628e2d49eba4a39c037a9d7ca93c9&s=400" class="right avatar"></a></li>
+    </ul>
+    </div>
+    </nav>
+</body>
+</html>
