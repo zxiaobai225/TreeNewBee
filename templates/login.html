@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/static/js/alertify.min.js"></script>
+    <script src="/static/js/login.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/user.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/alertify.min.css') }}">
+    <title>登录注册</title>
+</head>
+<body>
+<div class="father">
+<div class="row login-row">
+    <div class="login">
+        <div class="input-field">
+            <input type="text" class="username validate" maxlength="16" required>
+            <label for="username">用户名</label>
+            <p style="margin-top: -20px;color: red"></p>
+        </div>
+        <div class="input-field">
+            <input type="password" class="password validate" maxlength="16" required>
+            <label for="password">密码</label>
+            <p style="margin-top: -20px;color: red"></p>
+        </div>
+        <div class="btn-all">
+            <a style="display: block; margin-bottom: 15px;" class="disabled login-btn waves-effect waves-light btn">登录</a>
+            <a style="display: block;" class="waves-effect waves-light btn go-register">前往注册</a>
+            <span class="help-block">没有账号?</span>
+        </div>
+    </div>
+</div>
+
+<div class="row register-row animated flipInY hide">
+    <div class="register">
+        <div class="input-field">
+            <input type="text" class="username1" maxlength="16" required>
+            <label for="username">用户名</label>
+            <p style="margin-top: -20px;color: red"></p>
+            <span>6~16位 可包含数字,字母和下划线</span>
+        </div>
+        <div class="input-field">
+            <input type="password" class="password1" maxlength="16" required>
+            <label for="password">密码</label>
+            <p style="margin-top: -20px;color: red"></p>
+            <span>6~16位 可包含数字,字母和下划线</span>
+        </div>
+        <div class="btn-all">
+            <a style="display: block; margin-bottom: 15px;" class="disabled register-btn waves-effect waves-light btn">注册</a>
+            <a style="display: block;" class="waves-effect waves-light btn go-login">前往登录</a>
+            <span class="help-block">已有账号?</span>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
