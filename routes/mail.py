@@ -10,7 +10,7 @@ main = Blueprint('mail', __name__)
 app.config.update(
     DEBUG=True,
     MAIL_SERVER='smtp.sina.com',
-    MAIL_PROT=587,
+    MAIL_PROT=465,
     MAIL_USERNAME='treenewbee225@sina.com',
     MAIL_PASSWORD='treenewbee225.cc',
     MAIL_DEBUG=True,
