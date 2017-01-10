@@ -22,11 +22,13 @@ mail = Mail(app)
 
 @async
 def send_async_email(app, msg):
+    print('send_async_email')
     with app.app_context():
         mail.send(msg)
 
 
 def send_email(subject, sender, recipients, text_body):
+    print('send_email')
     msg = Message(subject, sender=sender, recipients=recipients)
     msg.body = text_body
     send_async_email(app, msg)
@@ -43,6 +45,7 @@ def send_mail():
         u.code = check_code
         u.save()
         msg = '验证码已发送至邮箱'
+        print('success')
         send_email(subject, sender, recipients, text_body)
         return api_response(True, message=msg)
     if u.password != '':

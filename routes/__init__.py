@@ -64,6 +64,7 @@ def async(f):
 
 
 def sent_email_config():
+    print('sent_email_config')
     subject = 'Tree New Bee 验证码'
     sender = 'treenewbee225@sina.com'
     # recipients = ['white.hcj@gmail.com']
