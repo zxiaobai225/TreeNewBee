@@ -55,6 +55,7 @@ def api_response(status=False, data=None, message=None):
     return json.dumps(r, ensure_ascii=False)
 
 
+# 异步进程
 def async(f):
     @wraps(f)
     def function(*args, **kwargs):
@@ -65,9 +66,6 @@ def async(f):
 
 def sent_email_config():
     subject = 'Tree New Bee 验证码'
-    sender = 'treenewbee225@sina.com'
-    # recipients = ['white.hcj@gmail.com']
-    recipients = []
+    user = 'treenewbee225@sina.com'
     check_code = ''.join([str(i) for i in random.sample(range(0, 9), 6)])
-    text_body = '您的注册验证码为:' + check_code
-    return subject, sender, recipients, check_code, text_body
+    return subject, user, check_code
