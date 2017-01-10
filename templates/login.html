@@ -9,13 +9,13 @@
     <script src="/static/js/user.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/alertify.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <title>登录注册</title>
 </head>
 <body>
 <div class="father">
-<div class="row login-row ">
+<div class="row login-row">
     <div class="login">
         <div class="input-field">
             <input type="text" class="username validate" maxlength="16" length="16" required >
@@ -44,6 +44,17 @@
         <div class="input-field">
             <input type="password" class="password1" maxlength="16" length="16" required>
             <label for="password">密码</label>
+            <p style="margin-top: -20px;color: red"></p>
+        </div>
+        <div class="input-field">
+            <input type="email" class="email" name="email" required>
+            <label for="email">邮箱</label>
+            <p style="margin-top: -20px;color: red"></p>
+        </div>
+        <div class="input-field">
+            <input style="width: 40%" type="text" class="code" name="code" maxlength="6" required>
+            <label for="code">验证码</label>
+            <button style="float: right" class="waves-effect waves-purple btn get-code">获取验证码</button>
             <p style="margin-top: -20px;color: red"></p>
         </div>
         <div class="btn-all">

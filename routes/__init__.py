@@ -8,10 +8,13 @@ from flask import send_from_directory
 from flask import session
 from flask import url_for
 from flask import abort
+from flask import flash
+from flask_mail import Mail, Message
+from threading import Thread
+import random
+import json
 
 from models.user import User
-
-import json
 
 
 def current_user():
@@ -51,3 +54,20 @@ def api_response(status=False, data=None, message=None):
              message=message)
     return json.dumps(r, ensure_ascii=False)
 
+
+def async(f):
+    @wraps(f)
+    def function(*args, **kwargs):
+        thr = Thread(target=f, args=args, kwargs=kwargs)
+        thr.start()
+    return function
+
+
+def sent_email_config():
+    subject = 'Tree New Bee 验证码'
+    sender = 'treenewbee225@sina.com'
+    # recipients = ['white.hcj@gmail.com']
+    recipients = []
+    check_code = ''.join([str(i) for i in random.sample(range(0, 9), 6)])
+    text_body = '您的注册验证码为:' + check_code
+    return subject, sender, recipients, check_code, text_body

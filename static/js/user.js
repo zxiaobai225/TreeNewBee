@@ -15,7 +15,8 @@ var bindEventLogin = function () {
 
         var data = {
             username: parent.find(':input.username').val(),
-            password: parent.find(':input.password').val()
+            password: parent.find(':input.password').val(),
+
         };
 
         $('.login').removeClass('animated shake')
@@ -41,7 +42,9 @@ var bindEventRegister = function () {
 
         var data = {
             username: parent.find(':input.username1').val(),
-            password: parent.find(':input.password1').val()
+            password: parent.find(':input.password1').val(),
+            email: parent.find(':input.email').val(),
+            code: parent.find(':input.code').val(),
         };
 
         $('.register').removeClass('animated shake')
@@ -58,10 +61,32 @@ var bindEventRegister = function () {
     })
 };
 
+var bindEventGetcode = function () {
+    $('.get-code').click(function () {
+
+        var parent = $(this).parents('.register')
+
+        var data = {
+            email: parent.find(':input.email').val(),
+        };
+
+        $('.register').removeClass('animated shake')
+        var response = function (r) {
+            if (r.success) {
+                alertify.success(r.message)
+            } else {
+                alertify.error(r.message)
+                $('.register').addClass('animated shake')
+            }
+        };
+        api.userGetcode(data, response)
+    })
+};
 
 var bindEvents = function () {
     bindEventLogin();
-    bindEventRegister()
+    bindEventRegister();
+    bindEventGetcode();
 };
 
 $(document).ready(function () {

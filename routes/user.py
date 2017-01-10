@@ -27,16 +27,16 @@ def login():
 @main.route('/register', methods=['POST'])
 def register():
     form = request.form
-    u = User(form)
-    user_id, msg = u.valid_register()
+    u = User.query.filter_by(email=form['email']).first()
+    user_id, msg = u.valid_register(form)
     if user_id is None:
-        return api_response(message=msg)
+        return api_response(False, message=msg)
     session['user_id'] = user_id
     return api_response(True, message=msg)
 
 
-@main.route('/signout')
+@main.route('/logout')
 @current_user_required
-def signout(user):
+def logout(user):
     session.pop('user_id')
     return redirect(url_for('node.index'))

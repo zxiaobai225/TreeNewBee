@@ -42,3 +42,7 @@ api.userRegister = function (form, response) {
     api.post(url, form, response)
 }
 
+api.userGetcode = function (form, response) {
+    var url = '/mail/send'
+    api.post(url, form, response)
+}

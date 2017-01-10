@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
-
+from flask_mail import Mail
 
 from models import db
 
@@ -11,7 +11,7 @@ from models.topic import Topic
 
 from routes.user import main as routes_user
 from routes.node import main as routes_node
-
+from routes.mail import main as routes_mail
 
 app = Flask(__name__)
 db_path = 'TreeNewBee.sqlite'
@@ -21,6 +21,7 @@ manager = Manager(app)
 def register_routes(app):
     app.register_blueprint(routes_user)
     app.register_blueprint(routes_node, url_prefix='/node')
+    app.register_blueprint(routes_mail, url_prefix='/mail')
 
 
 def configure_app():
