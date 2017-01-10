@@ -54,6 +54,7 @@ def send_mail():
     u.code = check_code
     u.email = form['email']
     u.save()
+    send_email(subject, sender, recipients, text_body)
     msg = '验证码已发送至邮箱'
     return api_response(True, message=msg)
 
