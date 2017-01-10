@@ -7,7 +7,7 @@ main = Blueprint('mail', __name__)
 
 @async
 def send_email(subject, user, recipient, check_code):
-    yag = yagmail.SMTP(user=user, password='treenewbee225.cc', host='smtp.sina.com', port='25')
+    yag = yagmail.SMTP(user=user, password='treenewbee225.cc', host='smtp.sina.com', port='587')
     body = check_code
     yag.send(to=recipient, subject=subject, contents=[body])
     print("成功发送邮件")
