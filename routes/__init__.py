@@ -66,6 +66,8 @@ def async(f):
 
 def sent_email_config():
     subject = 'Tree New Bee 验证码'
-    user = 'treenewbee225@sina.com'
+    sender = 'Tree New Bee', 'treenewbee225@sina.com'
+    recipients = []
     check_code = ''.join([str(i) for i in random.sample(range(0, 9), 6)])
-    return subject, user, check_code
+    text_body = '您的注册验证码为:' + check_code
+    return subject, sender, recipients, check_code, text_body

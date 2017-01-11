@@ -5,6 +5,7 @@ from . import ModelMixin
 from . import db
 from . import *
 
+
 class User(db.Model, ModelMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -15,9 +16,9 @@ class User(db.Model, ModelMixin):
     signature = db.Column(db.String(225))
 
     code = db.Column(db.String(6))
-    credit = db.Column(db.Integer, default=100)    # 信用积分
+    credit = db.Column(db.Integer, default=100)  # 信用积分
     created_time = db.Column(db.Integer)
-    unsafe = db.Column(db.Integer, default=0)      # 非法请求
+    unsafe = db.Column(db.Integer, default=0)  # 非法请求
 
     def __init__(self, form):
         super(User, self).__init__()
@@ -43,7 +44,7 @@ class User(db.Model, ModelMixin):
     # 验证注册用户的合法性的
     def valid_register(self, form):
         valid_username = User.query.filter_by(username=form['username']).first() == None
-        valid_code = User.query.filter_by(code=form['code'],email=form['email']).first() != None
+        valid_code = User.query.filter_by(code=form['code'], email=form['email']).first() != None
         valid_username_len = 16 >= len(form['username']) >= 6
         valid_password_len = 16 >= len(form['password']) >= 6
         err_msgs = ''
