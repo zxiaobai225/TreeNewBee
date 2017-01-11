@@ -46,3 +46,13 @@ api.userGetcode = function (form, response) {
     var url = '/mail/send'
     api.post(url, form, response)
 }
+
+api.profileUpdate = function (form, response) {
+    var url = '/profile/update'
+    api.post(url, form, response)
+}
+
+api.addBoardMsg = function (form, response) {
+    var url = '/board/add'
+    api.post(url, form, response)
+}

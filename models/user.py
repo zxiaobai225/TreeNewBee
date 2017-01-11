@@ -1,5 +1,6 @@
 import os
 import re
+import random
 
 from . import ModelMixin
 from . import db
@@ -14,6 +15,7 @@ class User(db.Model, ModelMixin):
     qq = db.Column(db.String(15))
     email = db.Column(db.String(225))
     signature = db.Column(db.String(225))
+    avatar = db.Column(db.String(225), default='/static/avatar/avatar%s.jpeg' % str(random.randint(1, 11)))
 
     code = db.Column(db.String(6))
     credit = db.Column(db.Integer, default=100)  # 信用积分
@@ -38,8 +40,10 @@ class User(db.Model, ModelMixin):
         return username_equals and password_equals
 
     def update(self, form):
-        print('user.update, ', form)
         self.password = form.get('password', self.password)
+        self.qq = form.get('qq', self.qq)
+        self.signature = form.get('signature', self.signature)
+        self.save()
 
     # 验证注册用户的合法性的
     def valid_register(self, form):

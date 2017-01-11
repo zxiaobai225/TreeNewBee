@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}个人中心{% endblock title %}
+
+{% block head %}
+    <script src="/static/js/profile.js"></script>
+{% endblock head %}
+{% block body %}
+<div class="profile">
+    头像预览：
+    <div>
+        大：<img class="z-depth-1" style="width: 192px;height: 192px;" src="{{ user.avatar }}">
+        中：<img class="z-depth-1" style="width: 128px;height: 128px;" src="{{ user.avatar }}">
+        小：<img class="z-depth-1" style="width: 64px;height: 64px;" src="{{ user.avatar }}">
+    </div><br>
+    <div class="input-field">
+    <input type="text" length="16" class="password" name="password" value="{{ user.password }}">
+    <label for="password">密码</label>
+    </div><br>
+    <div class="input-field">
+    <input disabled type="text" name="email" value="{{ user.email }}">
+    <label for="email">E-mail</label>
+    </div><br>
+    <div class="input-field">
+    <input type="text" class="qq" name="qq" value="{{ user.qq }}"><br>
+    <label for="qq">QQ</label>
+    </div><br>
+    <div class="input-field">
+    <textarea class="materialize-textarea signature" name="signature" length="100">{{ user.signature }}</textarea>
+    <label for="signature">个性签名</label>
+    </div>
+    <button id="update" class="waves-effect waves-purple btn">保存</button>
+</div>
+{% endblock body %}

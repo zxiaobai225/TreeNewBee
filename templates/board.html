@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+    <script src="/static/js/board.js"></script>
+{% endblock head %}
+{% block title %}
+    留言板
+{% endblock title %}
+
+{% block body %}
+    <div class="board">
+    <div class="msgs">
+    {% for msg in board %}
+    <div style="margin-top: 5px;">
+        <label style="margin-right: 10px;">{{ msg.created_time }}</label>
+        <span style="color:mediumvioletred">{{ msg.username }}</span>
+        <span>: {{ msg.content }}</span>
+    </div>
+    {% endfor %}
+    </div>
+    <div class="input-field">
+    <textarea class="materialize-textarea content" name="content" length="100"></textarea>
+    <button id="add" class="waves-effect waves-purple btn">留言</button>
+    </div>
+    </div>
+{% endblock body %}

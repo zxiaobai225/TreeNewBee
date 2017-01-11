@@ -44,3 +44,9 @@ def register():
 def logout(user):
     session.pop('user_id')
     return redirect(url_for('node.index'))
+
+
+@main.route('/profile')
+@current_user_required
+def profile(user):
+    return render_template('profile.html', user=user)

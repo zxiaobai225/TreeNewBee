@@ -8,10 +8,14 @@ from models import db
 from models.user import User
 from models.node import Node
 from models.topic import Topic
+from models.board import Board
 
 from routes.user import main as routes_user
 from routes.node import main as routes_node
 from routes.mail import main as routes_mail
+from routes.profile import main as routes_profile
+from routes.board import main as routes_board
+
 
 app = Flask(__name__)
 db_path = 'TreeNewBee.sqlite'
@@ -22,6 +26,8 @@ def register_routes(app):
     app.register_blueprint(routes_user)
     app.register_blueprint(routes_node, url_prefix='/node')
     app.register_blueprint(routes_mail, url_prefix='/mail')
+    app.register_blueprint(routes_profile, url_prefix='/profile')
+    app.register_blueprint(routes_board, url_prefix='/board')
 
 
 def configure_app():
