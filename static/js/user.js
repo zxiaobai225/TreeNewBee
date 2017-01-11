@@ -81,7 +81,7 @@ var bindEventGetcode = function () {
                     $(".get-code").text("稍等"+count+"s");
                     $(".get-code").css({'background':'#cccccc'})
                     if (count == 0) {
-                        $(".get-code").text("获取验证码").removeAttr("disabled");
+                        $(".get-code").text("重新获取").removeAttr("disabled");
                         $(".get-code").css({'background':'#26a69a'})
                         clearInterval(countdown);
                     }
