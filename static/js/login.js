@@ -23,15 +23,15 @@ $(document).ready(function() {
         $("input").blur(function () {
 
             var valLength = $(this).val().length;
-            if ($(this).hasClass('username1') & valLength>0 & valLength< 6) {
+            if ($(this).hasClass('username1') & valLength>0 && valLength< 6) {
                 $(this).siblings('p').text('用户名至少为6位')
-            } else if ($(this).hasClass('password1') & valLength>0 & valLength< 6) {
+            } else if ($(this).hasClass('password1') & valLength>0 && valLength< 6) {
                 $(this).siblings('p').text('密码至少为6位')
-            } else if ($(this).hasClass('code') & valLength>0 & valLength< 6) {
+            } else if ($(this).hasClass('code') & valLength>0 && valLength< 6) {
                 $(this).siblings('p').text('验证码为6位')
             } else if ($(this).hasClass('email')
-                & !$(".email").val().match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)
-                & $(".email").val().length>0){
+                && !$(".email").val().match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)
+                && $(".email").val().length>0){
                 $(this).siblings('p').text('邮箱格式不正确')
             }
              else {
@@ -45,7 +45,7 @@ $(document).ready(function() {
         $('input').on('input propertychange', function () {
             var usernameLength = $('.username').val().length;
             var passwordLength = $('.password').val().length;
-            if(usernameLength>=6 & passwordLength>=6){
+            if(usernameLength>=6 && passwordLength>=6){
                 $('.login-btn').removeClass('disabled');
             }else {
                 $('.login-btn').addClass('disabled');
@@ -56,18 +56,17 @@ $(document).ready(function() {
             var usernameLength = $('.username1').val().length;
             var passwordLength = $('.password1').val().length;
             var codeLength = $('.code').val().length;
-            if(usernameLength>=6 & passwordLength>=6 & codeLength==6 ){
+            var email=$(".email").val();
+            if(usernameLength>=6 & passwordLength>=6 && codeLength==6 ){
                 $('.register-btn').removeClass('disabled');
             }else {
                 $('.register-btn').addClass('disabled');
             }
-            var email=$(".email").val();
-            if(email.length==0){
+            if(email.length==0 || !email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+                $('.get-code').addClass('disabled');
                 $('.register-btn').addClass('disabled');
-            }
-            if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
-                $('.register-btn').addClass('disabled');
+            } else {
+                $('.get-code').removeClass('disabled');
             }
         });
-
     })

@@ -76,7 +76,6 @@ class User(db.Model, ModelMixin):
             self.password = form['password']
             self.save()
             return self.id, '注册成功'
-        err_msgs += '注册失败'
         return None, err_msgs
 
     # 验证用户登录

@@ -28,7 +28,11 @@ def login():
 def register():
     form = request.form
     u = User.query.filter_by(email=form['email']).first()
-    user_id, msg = u.valid_register(form)
+    try:
+        user_id, msg = u.valid_register(form)
+    except:
+        msg = '尚未获取验证码'
+        return api_response(False, message=msg)
     if user_id is None:
         return api_response(False, message=msg)
     session['user_id'] = user_id

@@ -74,6 +74,19 @@ var bindEventGetcode = function () {
         var response = function (r) {
             if (r.success) {
                 alertify.success(r.message)
+                var count = 30;
+                var countdown = setInterval(CountDown, 1000);
+                function CountDown() {
+                    $(".get-code").attr("disabled", true);
+                    $(".get-code").text("稍等"+count+"s");
+                    $(".get-code").css({'background':'#cccccc'})
+                    if (count == 0) {
+                        $(".get-code").text("获取验证码").removeAttr("disabled");
+                        $(".get-code").css({'background':'#26a69a'})
+                        clearInterval(countdown);
+                    }
+                    count--;
+                }
             } else {
                 alertify.error(r.message)
                 $('.register').addClass('animated shake')
