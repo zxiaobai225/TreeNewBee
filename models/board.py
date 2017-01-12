@@ -17,7 +17,7 @@ class Board(db.Model, ModelMixin):
         self.created_time = date_time()
 
     def valid(self):
-        return len(self.content) > 2
+        return 101 > len(self.content) > 1
 
     def board_add(self, user):
         if self.valid():
@@ -28,5 +28,4 @@ class Board(db.Model, ModelMixin):
                           'created_time': self.created_time,
                           }, '留言成功'
 
-        return False, None, '留言至少3个字符'
-
+        return False, None, '留言不得少于2个字符多于100个字符'

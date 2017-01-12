@@ -8,6 +8,7 @@ var msgTemplate = function(msg) {
         <label style="margin-right: 10px;">${ m.created_time }</label>
         <span style="color:mediumvioletred">${ m.username }</span>
         <span>: ${ m.content }</span>
+        <span class="right" style="color:red">new</span>
     </div>
   `
   return t
@@ -21,7 +22,7 @@ var bindEventAdd = function () {
         };
         var response = function (r) {
             if (r.success) {
-                $('.msgs').append(msgTemplate(r.data))
+                $('.msgs').prepend(msgTemplate(r.data))
                 parent.find('.content').val('')
                 alertify.success(r.message)
             } else {

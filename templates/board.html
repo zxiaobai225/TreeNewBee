@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 {% block head %}
     <script src="/static/js/board.js"></script>
+    <style>
+    .msgs{
+        max-height: 380px;
+        overflow-y: auto;
+    }
+    </style>
 {% endblock head %}
-{% block title %}
-    留言板
-{% endblock title %}
+{% block title %}留言板{% endblock title %}
 
 {% block body %}
     <div class="board">
     <div class="msgs">
-    {% for msg in board %}
+    {% for msg in board[::-1] %}
     <div style="margin-top: 5px;">
         <label style="margin-right: 10px;">{{ msg.created_time }}</label>
-        <span style="color:mediumvioletred">{{ msg.username }}</span>
-        <span>: {{ msg.content }}</span>
+        <span style="color:mediumvioletred;margin-right: 10px">{{ msg.username }}:</span>
+        <span>{{ msg.content }}</span>
     </div>
     {% endfor %}
     </div>

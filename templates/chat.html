@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}聊天室{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/chat.css">
+    <script src="/static/js/chat.js"></script>
+{% endblock head%}
+
+{% block body %}
+<div id='id-div-channels' class="rc-left">
+    <h5>聊天室</h5>
+    <a class="rc-channel" href="#">大厅</a>
+    <a class="rc-channel" href="#">游戏</a>
+    <a class="rc-channel" href="#">灌水</a>
+</div>
+<div class="rc-main">
+<div id="id-div-chats" class="">
+</div>
+    <div class="rc-input">
+    <form class="input-field">
+        <input id='id-input-content' maxlength="30" length="30">
+        <button id='id-button-send' class="waves-effect waves-purple btn" type="button">发送消息</button>
+    </form>
+    </div>
+</div>
+{% endblock %}

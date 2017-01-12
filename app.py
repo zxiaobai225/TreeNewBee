@@ -10,6 +10,7 @@ from models.node import Node
 from models.topic import Topic
 from models.board import Board
 
+from routes.chat import main as routes_chat
 from routes.user import main as routes_user
 from routes.node import main as routes_node
 from routes.mail import main as routes_mail
@@ -28,6 +29,7 @@ def register_routes(app):
     app.register_blueprint(routes_mail, url_prefix='/mail')
     app.register_blueprint(routes_profile, url_prefix='/profile')
     app.register_blueprint(routes_board, url_prefix='/board')
+    app.register_blueprint(routes_chat, url_prefix='/chat')
 
 
 def configure_app():
