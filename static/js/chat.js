@@ -33,7 +33,7 @@
                     <div class="chat-item__avatar">
                         <span class="widget">
                             <div class="trpDisplayPicture avatar-s">
-                                <img src="${avatar}" class="circle z-depth-1" height="40" width="40" class="avatar__image" alt="">
+                                <img src="/static/avatar/${avatar}" class="circle z-depth-1" height="40" width="40" class="avatar__image" alt="">
                             </div>
                         </span>
                     </div>
