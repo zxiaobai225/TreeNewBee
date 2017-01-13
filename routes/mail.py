@@ -8,12 +8,13 @@ app = Flask(__name__)
 main = Blueprint('mail', __name__)
 
 app.config.update(
-    MAIL_SERVER='smtp.sina.com',
-    MAIL_PROT=587,
+    MAIL_SERVER='smtp.tom.com',
+    MAIL_PROT=25,
     MAIL_USERNAME=MAIL_USERNAME,
     MAIL_PASSWORD=MAIL_PASSWORD,
     MAIL_DEBUG=True,
-    MAIL_USE_TLS=True,
+    # MAIL_USE_TLS=True,
+
 )
 
 mail = Mail(app)
