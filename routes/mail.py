@@ -40,6 +40,7 @@ def send_mail():
     if u is None:
         u = User(form)
         u.code = check_code
+        u.avatar = 'avatar%s.jpeg' % ''.join([str(i) for i in random.sample(range(0, 9), 1)])
         u.save()
         msg = '验证码已发送至邮箱'
         send_email(subject, sender, recipients, text_body)

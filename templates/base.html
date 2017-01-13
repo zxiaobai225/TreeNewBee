@@ -15,8 +15,8 @@
         height: 100%;
     }
     .container{
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: 50%;
     }
     </style>
@@ -62,7 +62,7 @@
       <li><a href="/board/all">留言板</a></li>
       <li><a href="#4">消息<span class="new badge">3</span></a></li>
       <li><a class="dropdown-button" href="/profile" data-activates="dropdown1">{{ user.username }}
-           <img style="height:64px;width:64px;margin-left:10px;margin-right:-15px;" src='{{ user.avatar }}' class="right avatar circle"></a></li>
+           <img style="height:64px;width:64px;margin-left:10px;margin-right:-15px;" src='/static/avatar/{{ user.avatar }}' class="right avatar circle"></a></li>
     </ul>
     </div>
     </nav>

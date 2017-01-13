@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 import time
-
+import random
 
 db = SQLAlchemy()
 
@@ -26,3 +26,4 @@ def date_time():
     valuegmt = time.gmtime(v)
     dt = time.strftime(format, valuegmt)
     return dt
+

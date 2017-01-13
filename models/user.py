@@ -15,7 +15,7 @@ class User(db.Model, ModelMixin):
     qq = db.Column(db.String(15))
     email = db.Column(db.String(225))
     signature = db.Column(db.String(225))
-    avatar = db.Column(db.String(225), default='/static/avatar/avatar%s.jpeg' % str(random.randint(1, 11)))
+    avatar = db.Column(db.String(225))
 
     code = db.Column(db.String(6))
     credit = db.Column(db.Integer, default=100)  # 信用积分
