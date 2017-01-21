@@ -3,7 +3,7 @@
     <script src="/static/js/board.js"></script>
     <style>
     .msgs{
-        max-height: 400px;
+        max-height: 500px;
         overflow-y: auto;
     }
     </style>
@@ -11,10 +11,11 @@
 {% block title %}留言&bug反馈{% endblock title %}
 
 {% block body %}
-    <div class="board">
+    <div class="board z-depth-3" style="background: white;padding: 40px 100px">
     <div class="msgs">
     {% for msg in board[::-1] %}
     <div style="margin-top: 5px;">
+        <label style="margin-right: 50px">{{ msg.id }}楼</label>
         <label style="margin-right: 10px;">{{ msg.created_time }}</label>
         <a href="/profile/{{ msg.username }}"><img style="position:relative;top:14px;height:40px;width:40px" src="/static/avatar/{{ msg.avatar }}" class="circle z-depth-1"></a>
         <span style="margin-right: 10px;">

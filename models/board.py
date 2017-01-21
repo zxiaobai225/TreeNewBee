@@ -28,6 +28,7 @@ class Board(db.Model, ModelMixin):
                           'username': self.username,
                           'created_time': self.created_time,
                           'avatar': self.avatar,
+                          'id':self.id,
                           }, '留言成功'
 
         return False, None, '留言不得少于2个字符多于100个字符'

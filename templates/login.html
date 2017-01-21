@@ -14,19 +14,18 @@
     <title>登录注册</title>
 </head>
 <body>
-<div class="father container">
+<div class="container">
 <div class="row login-row">
-    <div class="login">
+    <div class="login z-depth-4 col-center-block">
         <div class="input-field">
             <input type="text" class="username validate" maxlength="16" length="16" required >
             <label for="username">用户名</label>
-            <p style="margin-top: -20px;color: red"></p>
         </div>
         <div class="input-field">
             <input type="password" class="password validate" maxlength="16" length="16" required>
             <label for="password">密码</label>
-            <p style="margin-top: -20px;color: red"></p>
         </div>
+        <br>
         <div class="btn-all">
             <a style="display: block; margin-bottom: 15px;" class="disabled login-btn waves-effect waves-purple btn">登录</a>
             <a style="display: block;" href="#signup" class="waves-effect waves-purple btn go-register">前往注册</a>
@@ -35,28 +34,29 @@
 </div>
 
 <div class="row register-row animated flipInY hide">
-    <div class="register">
+    <div class="register z-depth-3 col-center-block">
         <div class="input-field">
             <input type="text" class="username1" maxlength="16" length="16" required>
             <label for="username">用户名</label>
-            <p style="margin-top: -20px;color: red"></p>
+            <p></p>
         </div>
         <div class="input-field">
             <input type="password" class="password1" maxlength="16" length="16" required>
             <label for="password">密码</label>
-            <p style="margin-top: -20px;color: red"></p>
+            <p></p>
         </div>
         <div class="input-field">
             <input type="email" class="email" name="email" required>
             <label for="email">邮箱</label>
-            <p style="margin-top: -20px;color: red"></p>
+            <p></p>
         </div>
         <div class="input-field">
             <input style="width: 40%" type="text" class="code" name="code" maxlength="6" required>
             <label for="code">验证码</label>
             <button style="float: right" class="disabled waves-effect waves-purple btn get-code">获取验证码</button>
-            <p style="margin-top: -20px;color: red"></p>
+            <p></p>
         </div>
+        <br>
         <div class="btn-all">
             <a style="display: block; margin-bottom: 15px;" class="disabled register-btn waves-effect waves-purple btn">注册</a>
             <a style="display: block;" href="#signin" class="waves-effect waves-purple btn go-login">前往登录</a>

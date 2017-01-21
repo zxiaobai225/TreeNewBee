@@ -1,37 +1,37 @@
-
-/*html,body{*/
-    /*height:100%;*/
-    /*overflow: hidden;*/
-    /*!*background: url("/static/img/background.jpg");*!*/
-    /*!*background: linear-gradient(0deg, #0b4182 1%, rgba(125, 60, 106, 0.76) 100%);*!*/
-    /*-webkit-background-size:100% 100%;*/
-    /*background-size:100% 100%;*/
-/*}*/
-.father{
-    width: 25%;
-    height: 25%;
-    margin: 200px auto;
-    position: relative;
-}
-.login-row{
-    width:100%;
+html{
     height:100%;
-    position: absolute;
+    overflow: hidden;
+    background: url("/static/img/background.jpg");
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    min-width: 1024px;
 }
 
-.register-row{
-    width:100%;
-    height:100%;
-    position: absolute;
+body {
+    background-color: transparent;
 }
-.btn-all{
-    width: 50%;
-    margin:0 auto;
+
+.container {
+    width: 1024px;
+    margin-top: 120px;
 }
+
+.login, .register{
+    width: 310px;
+}
+
+.col-center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding: 1px 15px 20px;
+    background: rgba(0, 0, 0, 0.15);
+    color:white;
+}
+
 p{
     font-size: 12px;
-}
-
-.help-block{
-    font-size: 14px;
+    margin-top: -20px;
+    color: red;
 }

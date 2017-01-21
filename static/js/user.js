@@ -22,7 +22,7 @@ var bindEventLogin = function () {
         $('.login').removeClass('animated shake')
         var response = function (r) {
             if (r.success) {
-                successView(parent.parents('.father'))
+                successView(parent.parents('.container'))
                 location.href = "/"
             } else {
                 alertify.error(r.message)
@@ -50,7 +50,7 @@ var bindEventRegister = function () {
         $('.register').removeClass('animated shake')
         var response = function (r) {
             if (r.success) {
-                successView(parent.parents('.father'))
+                successView(parent.parents('.container'))
                 location.href = "/"
             } else {
                 alertify.error(r.message)

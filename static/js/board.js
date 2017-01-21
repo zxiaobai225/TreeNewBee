@@ -5,6 +5,7 @@ var msgTemplate = function(msg) {
   var m = msg
   var t = `
     <div style="margin-top: 5px;">
+        <label style="margin-right: 50px">${ m.id }楼</label>
         <label style="margin-right: 10px;">${ m.created_time }</label>
         <a href="/profile/${ m.username }"><img style="position:relative;top:14px;height:40px;width:40px" src="/static/avatar/${ m.avatar }" class="circle z-depth-1"></a>
         <span style="margin-right: 10px;">

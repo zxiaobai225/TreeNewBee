@@ -13,11 +13,12 @@
     <style>
     body,html{
         height: 100%;
+        background: #f5f8fa;
     }
     .container{
         margin-top: 20px;
         margin-bottom: 20px;
-        width: 50%;
+        width: 80%;
     }
     </style>
     <title>{% block title %}Tree New Bee{% endblock title %}</title>
@@ -54,13 +55,13 @@
 </head>
 <body>
 <div class="navbar-fixed">
-    <nav class="z-depth-1" style="min-width: 800px;">
+    <nav class="z-depth-3" style="min-width: 800px;">
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="/profile/{{ user.username }}">个人中心</a></li>
         <li><a href="/logout">登出</a></li>
     </ul>
     <div class="nav-wrapper">
-    <a href="/"  class="brand-logo left">Tree New Bee</a>
+    <a href="/" style="margin-left: 20px;"  class="brand-logo left">Tree New Bee</a>
     <ul class="right">
       <li><a href="#1">微博</a></li>
       <li><a href="/chat/index">聊天室</a></li>
