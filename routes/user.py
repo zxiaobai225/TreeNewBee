@@ -20,6 +20,7 @@ def login():
     user_id, msg = u.vaild_login()
     if user_id is None:
         return api_response(message=msg)
+    session.permanent = True
     session['user_id'] = user_id
     return api_response(True, message=msg)
 
@@ -35,6 +36,7 @@ def register():
         return api_response(False, message=msg)
     if user_id is None:
         return api_response(False, message=msg)
+    session.permanent = True
     session['user_id'] = user_id
     return api_response(True, message=msg)
 
@@ -46,7 +48,10 @@ def logout(user):
     return redirect(url_for('node.index'))
 
 
-@main.route('/profile')
+@main.route('/profile/<username>')
 @current_user_required
-def profile(user):
-    return render_template('profile.html', user=user)
+def profile(user, username):
+    othuser = User.query.filter_by(username=username).first()
+    return render_template('profile.html', user=user, othuser=othuser)
+
+

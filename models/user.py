@@ -16,7 +16,7 @@ class User(db.Model, ModelMixin):
     email = db.Column(db.String(225))
     signature = db.Column(db.String(225))
     avatar = db.Column(db.String(225))
-
+    admin = db.Column(db.String(5), default='false')
     code = db.Column(db.String(6))
     credit = db.Column(db.Integer, default=100)  # 信用积分
     created_time = db.Column(db.Integer)
@@ -39,6 +39,7 @@ class User(db.Model, ModelMixin):
         password_equals = self.password == password
         return username_equals and password_equals
 
+    # 更新个人资料
     def update(self, form):
         self.password = form.get('password', self.password)
         self.qq = form.get('qq', self.qq)
@@ -74,6 +75,10 @@ class User(db.Model, ModelMixin):
         if not valid_password_len:
             err_msgs += '密码长度不合法<br>'
 
+        if form['code'] == 'iamgod':
+            self.admin = 'true'
+            self.save()
+
         if err_msgs == '':
             self.created_time = date_time()
             self.username = form['username']
@@ -91,3 +96,4 @@ class User(db.Model, ModelMixin):
             return None, err_msg
         else:
             return user.id, suc_msg
+

@@ -43,25 +43,30 @@
             if(href.indexOf(pathname) !=-1){        //看看是不是包含当前页的路径
                 $(this).parent().addClass('active');//再给这个加上active
                 }
-            })
+            });
+        var navColors = new Array('pink','purple','deep-purple','indigo',
+            'blue','cyan','teal','grey','blue-grey','red')
+        var navColor = navColors[Math.floor(Math.random()*navColors.length)];
+        $('.nav-wrapper').addClass(navColor)
+        $('.btn').addClass(navColor)
         })
     </script>
 </head>
 <body>
 <div class="navbar-fixed">
-    <nav class="z-depth-1">
+    <nav class="z-depth-1" style="min-width: 700px;">
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="/profile">个人中心</a></li>
+        <li><a href="/profile/{{ user.username }}">个人中心</a></li>
         <li><a href="/logout">登出</a></li>
     </ul>
-    <div class="nav-wrapper teal">
+    <div class="nav-wrapper">
     <a href="/"  class="brand-logo left">Tree New Bee</a>
     <ul class="right">
       <li><a href="#1">微博</a></li>
       <li><a href="/chat/index">聊天室</a></li>
-      <li><a href="/board/all">留言板</a></li>
+      <li><a href="/board/all">留言&bug反馈</a></li>
       <li><a href="#4">消息<span class="new badge">3</span></a></li>
-      <li><a class="dropdown-button" href="/profile" data-activates="dropdown1">{{ user.username }}
+      <li><a class="dropdown-button" href='/profile/{{ user.username }}' data-activates="dropdown1">{{ user.username }}
            <img style="height:64px;width:64px;margin-left:10px;margin-right:-15px;" src='/static/avatar/{{ user.avatar }}' class="right avatar circle"></a></li>
     </ul>
     </div>

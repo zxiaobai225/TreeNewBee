@@ -6,7 +6,8 @@
     <script src="/static/js/profile.js"></script>
 {% endblock head %}
 {% block body %}
-<div class="profile">
+<div class="profile" style="min-width: 475px">
+    {% if othuser.username == user.username %}
     <form style="margin-bottom: 10px" class="form-horizontal" action="{{ url_for('profile.upload') }}" method="post" enctype="multipart/form-data">
         <input class="form-control input" id="fileupload1" type="file" name="file">
         <input type="submit" value="上传" class="waves-effect waves-purple btn">
@@ -34,5 +35,27 @@
     <label for="signature">个性签名</label>
     </div>
     <button id="update" class="waves-effect waves-purple btn">保存</button>
+
+    {% else %}
+    头像预览：
+    <div>
+        大：<img class="z-depth-1" style="width: 192px;height: 192px;" src="/static/avatar/{{ othuser.avatar }}">
+        中：<img class="z-depth-1" style="width: 128px;height: 128px;" src="/static/avatar/{{ othuser.avatar }}">
+        小：<img class="z-depth-1" style="width: 64px;height: 64px;" src="/static/avatar/{{ othuser.avatar }}">
+    </div><br>
+
+    <div class="input-field">
+    <input disabled type="text" name="email" value="{{ othuser.email }}">
+    <label for="email">E-mail</label>
+    </div><br>
+    <div class="input-field">
+    <input disabled type="text" class="qq" name="qq" value="{{ othuser.qq }}"><br>
+    <label for="qq">QQ</label>
+    </div><br>
+    <div class="input-field">
+    <textarea disabled class="materialize-textarea signature" name="signature" length="100">{{ othuser.signature }}</textarea>
+    <label for="signature">个性签名</label>
+    </div>
+    {% endif %}
 </div>
 {% endblock body %}

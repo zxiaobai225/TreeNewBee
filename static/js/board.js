@@ -6,9 +6,11 @@ var msgTemplate = function(msg) {
   var t = `
     <div style="margin-top: 5px;">
         <label style="margin-right: 10px;">${ m.created_time }</label>
-        <span style="color:mediumvioletred">${ m.username }</span>
-        <span>: ${ m.content }</span>
-        <span class="right" style="color:red">new</span>
+        <a href="/profile/${ m.username }"><img style="position:relative;top:14px;height:40px;width:40px" src="/static/avatar/${ m.avatar }" class="circle z-depth-1"></a>
+        <span style="margin-right: 10px;">
+        <a style="color:mediumvioletred" href="/profile/${ m.username }">${ m.username }</a>:</span>
+        <span>${ m.content }</span>
+        <span class="right" style="color:red;position:relative;top:24px">new</span>
     </div>
   `
   return t

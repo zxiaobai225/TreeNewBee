@@ -12,6 +12,7 @@ from flask import flash
 from flask_mail import Mail, Message
 from threading import Thread
 import random
+import uuid
 import json
 import os
 import time
@@ -41,7 +42,7 @@ def admin_required(f):
         user = current_user()
         if user is None:
             abort(404)
-        if user.id != 1:
+        if user.admin != 'true':
             user.unsafe += 1
             user.save()
             abort(404)

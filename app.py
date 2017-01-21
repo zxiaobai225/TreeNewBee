@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, session
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_mail import Mail
 
+from datetime import timedelta
 from models import db
 
 from models.user import User
@@ -35,6 +36,8 @@ def register_routes(app):
 def configure_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.secret_key = 'secret key'
+    # 设置session过期时间
+    app.permanent_session_lifetime = timedelta(days=30)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(db_path)
     db.init_app(app)
     register_routes(app)
