@@ -1,7 +1,7 @@
 html{
     height:100%;
     overflow: hidden;
-    background: url("/static/img/background.jpg");
+    background: url("/static/img/background1.jpg");
     -webkit-background-size:100% 100%;
     background-size:100% 100%;
     min-width: 1024px;
