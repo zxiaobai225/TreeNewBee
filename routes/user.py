@@ -54,4 +54,3 @@ def profile(user, username):
     othuser = User.query.filter_by(username=username).first()
     return render_template('profile.html', user=user, othuser=othuser)
 
-

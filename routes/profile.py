@@ -35,5 +35,5 @@ def upload(user):
             file.save(os.path.join(UPLOAD_FOLDER, fname))
             user.avatar = fname
             user.save()
-            return redirect(url_for('user.profile'))
-        return redirect(url_for('user.profile'))
+            return redirect(url_for('user.profile', username=user.username))
+        return redirect(url_for('user.profile', username=user.username))
