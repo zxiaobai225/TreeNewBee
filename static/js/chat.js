@@ -33,7 +33,9 @@
                     <div class="chat-item__avatar">
                         <span class="widget">
                             <div class="trpDisplayPicture avatar-s">
+                                <a href="/profile/${name}" target="_blank">
                                 <img src="/static/avatar/${avatar}" class="circle z-depth-1" height="40" width="40" class="avatar__image" alt="">
+                                </a>
                             </div>
                         </span>
                     </div>
@@ -44,7 +46,10 @@
                 </div>
                 <div class="chat-item__content chat-content">
                     <div class="chat-item__details">
-                        <div style="color:mediumvioletred" class="chat-item__from js-chat-item-from">${name}</div>
+                        <div style="color:mediumvioletred" class="chat-item__from js-chat-item-from">
+                        <a style="color:mediumvioletred" href="/profile/${ name }" target="_blank">
+                        ${name}</a>
+                        </div>
                         <span style="color:lightblue" class="chat-item__time js-chat-time" href="#">
                             <time data-time="${time}"></time>
                         </span>

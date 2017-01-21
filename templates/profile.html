@@ -11,7 +11,7 @@
     <form style="margin-bottom: 10px" class="form-horizontal" action="{{ url_for('profile.upload') }}" method="post" enctype="multipart/form-data">
         <input class="form-control input" id="fileupload1" type="file" name="file">
         <input type="submit" value="上传" class="waves-effect waves-purple btn">
-    </form>
+    </form><br>
     头像预览：
     <div>
         大：<img class="z-depth-1" style="width: 192px;height: 192px;" src="/static/avatar/{{ user.avatar }}">
@@ -37,6 +37,10 @@
     <button id="update" class="waves-effect waves-purple btn">保存</button>
 
     {% else %}
+    <div>
+    用户名: <span style="color:mediumvioletred;font-size: 20px">{{ othuser.username }}</span>
+    <button style="margin-left: 165px" class="waves-effect waves-purple btn">关注</button>
+    </div><br>
     头像预览：
     <div>
         大：<img class="z-depth-1" style="width: 192px;height: 192px;" src="/static/avatar/{{ othuser.avatar }}">
