@@ -6,7 +6,7 @@
     <script src="/static/js/profile.js"></script>
 {% endblock head %}
 {% block body %}
-<div class="profile z-depth-3" style="min-width: 860px;background: white;padding: 40px 100px">
+<div class="profile z-depth-3" style="min-width: 800px;background: white;padding: 40px 100px">
     {% if othuser.username == user.username %}
     <form style="margin-bottom: 10px" class="form-horizontal" action="{{ url_for('profile.upload') }}" method="post" enctype="multipart/form-data">
         <input class="form-control input" id="fileupload1" type="file" name="file">
