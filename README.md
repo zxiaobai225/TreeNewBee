@@ -5,14 +5,14 @@
 ###编程语言
 
 - [Python 3](https://www.python.org/)
-- [JavaScript] (https://www.javascript.com/)
+- [JavaScript](https://www.javascript.com/)
 
 ###后 端
 
-- [Flask] (https://github.com/pallets/flask)
-- [Flask-SQLAlchemy] (https://github.com/mitsuhiko/flask-sqlalchemy)
-- [Flask-Migrate] (https://github.com/miguelgrinberg/Flask-Migrate)
-- [Flask-Script] (https://github.com/smurfix/flask-script)
+- [Flask](https://github.com/pallets/flask)
+- [Flask-SQLAlchemy](https://github.com/mitsuhiko/flask-sqlalchemy)
+- [Flask-Migrate](https://github.com/miguelgrinberg/Flask-Migrate)
+- [Flask-Script](https://github.com/smurfix/flask-script)
 - [SQLite](https://www.sqlite.org/)
 - [MySQL](https://www.mysql.com/)
 

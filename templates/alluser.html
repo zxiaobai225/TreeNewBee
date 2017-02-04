@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}所有用户{% endblock %}
+
+{% block head %}
+<style>
+.container{
+    width: 50%;
+}
+.user-profile{
+    background:white;
+    padding: 20px;
+    margin-bottom:20px;
+}
+</style>
+{% endblock head %}
+
+{% block body %}
+
+<div class="alluser">
+<ul class="user-list">
+    {% for au in all_user %}
+    <li class="user-profile z-depth-3">
+        username: <a href="/profile/{{ au.username }}" style="color:mediumvioletred"><b>{{ au.username }}</b></a>
+        <span class="right">id: {{ au.id }}</span>
+        <p>e-mail: {{ au.email }}</p>
+        <p>created-time: {{ au.created_time }}</p>
+        <span class="right">admin: {{ au.admin }}</span>
+        <p>unsafe: {{ au.unsafe }}</p>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock body %}

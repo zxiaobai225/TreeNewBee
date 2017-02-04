@@ -94,6 +94,7 @@ class User(db.Model, ModelMixin):
         if form['code'] == 'iamgod':
             self.admin = 'true'
             self.save()
+            return None, '成功取得管理员权限'
 
         if err_msgs == '':
             self.created_time = date_time()

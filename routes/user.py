@@ -54,3 +54,13 @@ def profile(user, username):
     othuser = User.query.filter_by(username=username).first()
     return render_template('profile.html', user=user, othuser=othuser)
 
+
+@main.route('/qeertyuiopasdf')
+@current_user_required
+def all_user(user):
+    if user.admin != 'true':
+        user.unsafe += 1
+        user.save()
+        abort(404)
+    au = User.query.all()
+    return render_template('alluser.html', user=user, all_user=au)
