@@ -13,12 +13,15 @@ class Topic(db.Model, ModelMixin):
     views = db.Column(db.Integer, default=0)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    board_id = db.Column(db.Integer, db.ForeignKey('nodes.id'))
+    node_id = db.Column(db.Integer, db.ForeignKey('nodes.id'))
+
+    comments = db.relationship('Comment', backref='topic', lazy='dynamic',
+                               order_by="desc(Comment.id)")
 
     def __init__(self, form):
         self.title = form.get('title', '')
         self.content = form.get('content', '')
-        self.board_id = form.get('board_id', 0)
+        self.node_id = form.get('node_id', 0)
 
     def update(self, form):
         self.title = form.get('title', '')
@@ -32,7 +35,6 @@ class Comment(db.Model, ModelMixin):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(225))
     created_time = db.Column(db.String(225), default=date_time())
-    updated_time = db.Column(db.String(225), default=date_time())
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     topic_id = db.Column(db.Integer, db.ForeignKey('topics.id'))

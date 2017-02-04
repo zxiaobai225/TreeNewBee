@@ -1,0 +1,126 @@
+/**
+ * Created by zxiaobai on 17/2/3.
+ */
+.container{
+    width: 50%;
+}
+
+textarea.materialize-textarea{
+    min-height: 0;
+}
+
+.weibo{
+    min-width: 300px;
+}
+
+.add-weibo{
+    background: white;
+    padding: 20px 20px;
+    border-radius: 5px;
+}
+
+.add-weibo textarea{
+    height: 1rem;
+}
+
+.add-weibo p{
+    color:#1b7fb6;
+    font-size:18px;
+}
+
+.weibo-item{
+    margin-top:10px;
+    background: white;
+    padding: 20px 20px;
+    border-radius: 5px;
+}
+
+.weibo-item .avatar{
+    width: 50px;
+    height: 50px;
+}
+
+.weibo-item:hover {
+    margin-left: -8px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+    border: 1px solid #e1e8ed;
+    box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.weibo-username a{
+    color:mediumvioletred;
+}
+
+.weibo-username a:hover{
+    color:#eb7350;
+}
+
+.weibo-created-time{
+    color:#808080;
+    font-size: 12px;
+}
+
+.weibo-avartar{
+    float: left;
+    margin-right:10px;
+}
+
+.weibo-item-2 div{
+    margin-bottom: -5px;
+}
+
+.weibo-item-3 {
+    margin-left: 60px;
+    margin-bottom:-10px;
+}
+
+.weibo-item-3 a{
+    color:#808080;
+    font-size: 13px;
+}
+
+.weibo-item-3 a:hover{
+    color:#eb7350;
+}
+
+.weibo-item-3 .zan{
+    margin-left: 35px;
+}
+
+.weibo-comments-add{
+    margin:10px 0;
+}
+
+.weibo-comments-add textarea{
+    height: 0;
+}
+
+.comment-avatar{
+    float: left;
+    margin-right:10px;
+}
+
+.comment-avatar img{
+    width: 30px;
+    height: 30px;
+}
+
+.comment-created-time{
+    color:#808080;
+    font-size: 12px;
+    margin-top:-15px;
+}
+
+.comment-avatar a{
+    font-size: 12px;
+}
+
+.comment-username a{
+    color:#eb7350;
+    font-size: 12px;
+}
+
+.comment-username span{
+    font-size: 12px;
+}

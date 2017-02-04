@@ -167,15 +167,14 @@
         function CountDown() {
             $("#id-button-send").addClass("disabled");
             $("#id-button-send").text("稍等"+count+"s");
-            $("#id-button-send").css({'background':'#cccccc'})
             if (count == 0) {
                 $("#id-button-send").text("发送消息").removeClass("disabled");
-                $("#id-button-send").css({'background':'#26a69a'})
                 clearInterval(countdown);
             }
             count--;
         }
       });
+
       // 频道切换
       $('.rc-channel').on('click', function(e){
           e.preventDefault();
@@ -183,8 +182,8 @@
           var channel = $(this).text();
           changeChannel(channel);
           // 切换显示
-          $('.rc-channel').removeClass('active-channel');
-          $(this).addClass('active-channel');
+          $('.rc-channel').removeClass('blue-grey darken-3');
+          $(this).addClass('blue-grey darken-3');
           // reload 信息
           $('#id-div-chats').empty();
           var chats = chatStore[currentChannel];

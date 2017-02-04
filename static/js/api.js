@@ -56,3 +56,18 @@ api.addBoardMsg = function (form, response) {
     var url = '/board/add'
     api.post(url, form, response)
 }
+
+api.addWeibo = function (form, response) {
+    var url = '/weibo/add'
+    api.post(url, form, response)
+}
+
+api.addWeiboComment = function (form, response) {
+    var url = '/weibo/comment/add'
+    api.post(url, form, response)
+}
+
+api.likeWeibo = function (weibo_id, response) {
+    var url = '/weibo/like/'+ weibo_id
+    api.get(url, response)
+}

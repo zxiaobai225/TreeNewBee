@@ -8,9 +8,8 @@ class Board(db.Model, ModelMixin):
     __tablename__ = 'boards'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(225))
-    avatar = db.Column(db.String(225), db.ForeignKey('users.avatar'))
-    username = db.Column(db.String(16), db.ForeignKey('users.username'))
     created_time = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, form):
         self.content = form.get("content", '')
@@ -21,14 +20,13 @@ class Board(db.Model, ModelMixin):
 
     def board_add(self, user):
         if self.valid():
-            self.username = user.username
-            self.avatar = user.avatar
+            self.user_id = user.id
             self.save()
             return True, {'content': self.content,
-                          'username': self.username,
+                          'username': self.user.username,
                           'created_time': self.created_time,
-                          'avatar': self.avatar,
-                          'id':self.id,
+                          'avatar': self.user.avatar,
+                          'id': self.id,
                           }, '留言成功'
 
         return False, None, '留言不得少于2个字符多于100个字符'

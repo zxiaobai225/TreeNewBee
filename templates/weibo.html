@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/weibo.css">
+<script src="/static/js/weibo.js"></script>
+{% endblock head %}
+{% block title %}微博{% endblock title %}
+
+{% block body %}
+<div class="weibo">
+<div class="z-depth-3 add-weibo">
+    <p>有什么新鲜事想告诉大家?</p>
+    <textarea class="materialize-textarea content" name="content" length="100"></textarea>
+    <button id="add" class="waves-effect waves-purple btn">发微博</button>
+</div>
+
+<div class="weibo-items">
+    {% for w in weibo.items %}
+    <div class="z-depth-3 weibo-item" data-id="{{ w.id }}">
+        <div class="weibo-item-1">
+            <div class="weibo-avartar">
+                <a href="/profile/{{ w.user.username }}">
+                    <img class="z-depth-2 circle avatar" src="/static/avatar/{{ w.user.avatar }}">
+                </a>
+            </div>
+            <div class="weibo-item-2" style="margin-left: 60px;">
+                <div class="weibo-username"><a href="/profile/{{ w.user.username }}"><b>{{ w.user.username }}</b></a></div>
+                <div class="weibo-created-time"><p>{{ w.created_time }}</p></div>
+                <div class="weibo-content"><p>{{ w.weibo }}</p></div>
+            </div>
+        </div>
+        <div class="weibo-item-3">
+            <a class="show-comment" href="javascript:">评论 <span>{{ w.comments_num }}</span></a>
+            <a class="zan" href="javascript:">赞 <span>{{ w.like_nums }}</span></a>
+        </div>
+    <div class="comment-items" style="display:none;">
+        <div class="weibo-comments-add">
+            <textarea class="materialize-textarea comment" name="comment" length="50"></textarea>
+            <button class="add-comment waves-effect waves-purple btn">发表评论</button>
+        </div>
+        <div class="weibo-comments">
+            {% for c in w.weibo_comments %}
+            <div class="comment-avatar">
+                <a href="/profile/{{ c.user.username }}">
+                    <img class="z-depth-2" src="/static/avatar/{{ c.user.avatar }}">
+                </a>
+            </div>
+            <div class="weibo-comment">
+                <div class="comment-username"><a href="/profile/{{ c.user.username }}">{{ c.user.username }}</a>: <span>{{ c.comment }}</span></div>
+                <div class="comment-created-time"><p>{{ c.created_time }}</p></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+    <div class="paginations" style="text-align: center">
+    <ul class="pagination">
+        {% if weibo.has_prev %}
+            <li class="waves-effect"><a href="{{ url_for('weibo.index', page=weibo.prev_num) }}">＜</a></li>
+        {% endif %}
+
+        {% for i in range(1, weibo.pages + 1) %}
+            {% if i == weibo.page %}
+                <li class="active"><a>{{ i }}</a></li>
+            {% else %}
+                <li class="waves-effect"><a href="{{ url_for('weibo.index', page=i) }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if weibo.has_next %}
+            <li class="waves-effect"><a href="{{ url_for('weibo.index', page=weibo.next_num) }}">＞</a></li>
+        {% endif %}
+    </ul>
+    </div>
+</div>
+{% endblock body %}

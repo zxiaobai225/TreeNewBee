@@ -10,7 +10,7 @@ from . import *
 class User(db.Model, ModelMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(16))
+    username = db.Column(db.String(32))
     password = db.Column(db.String(16))
     qq = db.Column(db.String(15))
     email = db.Column(db.String(225))
@@ -21,6 +21,22 @@ class User(db.Model, ModelMixin):
     credit = db.Column(db.Integer, default=100)  # 信用积分
     created_time = db.Column(db.Integer)
     unsafe = db.Column(db.Integer, default=0)  # 非法请求
+    like_weibo = db.Column(db.Text(65535), default='')
+
+    weibos = db.relationship('Weibo', backref='user', lazy='dynamic',
+                             order_by="desc(Weibo.id)")
+
+    weibo_comments = db.relationship('WeiboComment', backref='user', lazy='dynamic',
+                                     order_by="desc(WeiboComment.id)")
+
+    topics = db.relationship('Topic', backref='user', lazy='dynamic',
+                             order_by="desc(Topic.id)")
+
+    comments = db.relationship('Comment', backref='user', lazy='dynamic',
+                               order_by="desc(Comment.id)")
+
+    boards = db.relationship('Board', backref='user', lazy='dynamic',
+                             order_by="desc(Board.id)")
 
     def __init__(self, form):
         super(User, self).__init__()

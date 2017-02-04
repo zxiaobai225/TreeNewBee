@@ -14,22 +14,17 @@
     color:black;
 }
 
-.active-channel {
-    background: #009688;
-}
-
 .rc-main {
     height: 100%
 }
 
 #id-div-chats {
     /*background: red;*/
-    width:50%;
-    max-height: 550px;
-    margin:0 auto;
+    width:40%;
+    height: 450px;
     overflow-y: auto;
-    padding-left:20px;
-    padding-top:20px;
+    padding-top:25px;
+    margin-left: 30%;
 }
 
 .chat-item{
@@ -38,8 +33,9 @@
 
 .rc-input {
     /*height: 200px;*/
-    position: fixed;
-    bottom: 50px;
+    margin-left: 30%;
+    width: 40%;
+    text-align: center;
 }
 
 #id-div-channels {

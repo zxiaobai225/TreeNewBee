@@ -10,6 +10,7 @@ from models.user import User
 from models.node import Node
 from models.topic import Topic
 from models.board import Board
+from models.weibo import Weibo, WeiboComment
 
 from routes.chat import main as routes_chat
 from routes.user import main as routes_user
@@ -17,6 +18,7 @@ from routes.node import main as routes_node
 from routes.mail import main as routes_mail
 from routes.profile import main as routes_profile
 from routes.board import main as routes_board
+from routes.weibo import main as routes_weibo
 
 
 app = Flask(__name__)
@@ -31,6 +33,7 @@ def register_routes(app):
     app.register_blueprint(routes_profile, url_prefix='/profile')
     app.register_blueprint(routes_board, url_prefix='/board')
     app.register_blueprint(routes_chat, url_prefix='/chat')
+    app.register_blueprint(routes_weibo, url_prefix='/weibo')
 
 
 def configure_app():

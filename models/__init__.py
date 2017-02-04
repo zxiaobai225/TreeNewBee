@@ -21,7 +21,7 @@ class ModelMixin(object):
 
 
 def date_time():
-    format = '%Y/%m/%d %H:%M:%S'
+    format = '%Y-%m-%d %H:%M:%S'
     v = int(time.time()) + 3600 * 8
     valuegmt = time.gmtime(v)
     dt = time.strftime(format, valuegmt)

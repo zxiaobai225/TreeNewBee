@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="Bookmark" href="/static/img/favicon.ico">
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/materialize.min.js"></script>
     <script src="/static/js/alertify.min.js"></script>
@@ -9,7 +11,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/alertify.min.css') }}">
-
     <style>
     body,html{
         height: 100%;
@@ -20,10 +21,14 @@
         margin-bottom: 20px;
         width: 80%;
     }
+    .footer-powered-all a, .footer-github a{
+        color:#666;
+    }
+    .footer-powered-all a:hover, .footer-github a:hover{
+        color:#eb7350;
+    }
     </style>
     <title>{% block title %}Tree New Bee{% endblock title %}</title>
-    {% block head %}
-    {% endblock head %}
     <script>
         var bindClick =function () {
          $('nav').on('click', 'a', function(){
@@ -36,26 +41,30 @@
         });
         };
         $(document).ready(function () {
+/*        var navColors = new Array('pink','purple','deep-purple','indigo',
+        'blue','cyan','teal','grey','blue-grey','red')
+
+        var navColor = navColors[Math.floor(Math.random()*navColors.length)];
+        $('.nav-wrapper').addClass(navColor)
+        $('.btn').addClass(navColor)
+*/
         $(".dropdown-button").dropdown({ hover: true });
         bindClick();
         var pathname = location.pathname;       //找到这个页面的路径
-        $('a').each(function(){                 //遍历所有a标签
+        $('.navbar-fixed').find('a').each(function(){                 //遍历所有a标签
             var href = $(this).attr('href');        //获取连接地址
             if(href.indexOf(pathname) !=-1){        //看看是不是包含当前页的路径
                 $(this).parent().addClass('active');//再给这个加上active
                 }
             });
-        var navColors = new Array('pink','purple','deep-purple','indigo',
-            'blue','cyan','teal','grey','blue-grey','red')
-        var navColor = navColors[Math.floor(Math.random()*navColors.length)];
-        $('.nav-wrapper').addClass(navColor)
-        $('.btn').addClass(navColor)
-        })
+        });
     </script>
+    {% block head %}
+    {% endblock head %}
 </head>
 <body>
 <div class="navbar-fixed">
-    <nav class="z-depth-3" style="min-width: 800px;">
+    <nav class="z-depth-3 teal" style="min-width: 700px;">
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="/profile/{{ user.username }}">个人中心</a></li>
         <li><a href="/logout">登出</a></li>
@@ -63,10 +72,12 @@
     <div class="nav-wrapper">
     <a href="/" style="margin-left: 20px;"  class="brand-logo left">Tree New Bee</a>
     <ul class="right">
-      <li><a href="#1">微博</a></li>
+      <li><a href="/weibo/all">微博</a></li>
       <li><a href="/chat/index">聊天室</a></li>
       <li><a href="/board/all">留言&bug反馈</a></li>
-      <li><a href="#4">消息<span class="new badge">3</span></a></li>
+      <!--
+      <li><a href="#4">消息<span class="new badge blue-grey darken-3">3</span></a></li>
+      -->
       <li><a class="dropdown-button" href='/profile/{{ user.username }}' data-activates="dropdown1">{{ user.username }}
            <img style="height:64px;width:64px;margin-left:10px;margin-right:-15px;" src='/static/avatar/{{ user.avatar }}' class="right avatar circle"></a></li>
     </ul>
@@ -76,6 +87,20 @@
 <div class="container">
     {% block body %}
     {% endblock body %}
+</div>
+<div class="footer" style="text-align: center;margin-top:80px;border-top: 2px solid #e1e8ed;">
+ 	<div class="footer-top">
+		<div class="footer-top-all">
+ 			<div class="footer-github">
+	 			<a href="https://github.com/zxiaobai225/TreeNewBee"><img src="/static/img/github.png" style="width: 30px;height: 30px;margin-bottom: -8px;"><b>Github</b></a>
+			</div>
+		</div>
+	</div>
+	  <div class="footer-powered">
+	  	<div class="footer-powered-all">
+		 	<a href="#"><b>Powered by Zxiaobai</b></a>
+		 </div>
+	  </div>
 </div>
 </body>
 </html>
