@@ -71,3 +71,8 @@ api.likeWeibo = function (weibo_id, response) {
     var url = '/weibo/like/'+ weibo_id
     api.get(url, response)
 }
+
+api.addQiqu = function (page, response) {
+    var url = '/qiqu?page='+ page
+    api.get(url, response)
+}

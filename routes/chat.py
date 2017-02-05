@@ -36,7 +36,7 @@ def current_time():
     return int(time.time())
 
 
-@main.route('/index')
+@main.route('')
 @current_user_required
 def index_view(user):
     return flask.render_template('chat.html', user=user)

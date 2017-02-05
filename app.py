@@ -14,11 +14,11 @@ from models.weibo import Weibo, WeiboComment
 
 from routes.chat import main as routes_chat
 from routes.user import main as routes_user
-from routes.node import main as routes_node
 from routes.mail import main as routes_mail
 from routes.profile import main as routes_profile
 from routes.board import main as routes_board
 from routes.weibo import main as routes_weibo
+from routes.qiqubaike import main as routes_qiqu
 
 
 app = Flask(__name__)
@@ -28,12 +28,12 @@ manager = Manager(app)
 
 def register_routes(app):
     app.register_blueprint(routes_user)
-    app.register_blueprint(routes_node, url_prefix='/node')
     app.register_blueprint(routes_mail, url_prefix='/mail')
     app.register_blueprint(routes_profile, url_prefix='/profile')
     app.register_blueprint(routes_board, url_prefix='/board')
     app.register_blueprint(routes_chat, url_prefix='/chat')
     app.register_blueprint(routes_weibo, url_prefix='/weibo')
+    app.register_blueprint(routes_qiqu, url_prefix='/qiqu')
 
 
 def configure_app():

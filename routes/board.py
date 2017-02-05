@@ -7,7 +7,7 @@ from models.board import Board
 main = Blueprint('board', __name__)
 
 
-@main.route('/all')
+@main.route('')
 @current_user_required
 def board(user):
     b = Board.query.all()

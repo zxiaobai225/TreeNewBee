@@ -7,7 +7,7 @@ from models.weibo import Weibo, WeiboComment
 main = Blueprint('weibo', __name__)
 
 
-@main.route('/all')
+@main.route('')
 @current_user_required
 def index(user):
     items_per_page = 20

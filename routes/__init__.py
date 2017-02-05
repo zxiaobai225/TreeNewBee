@@ -16,7 +16,9 @@ import uuid
 import json
 import os
 import time
+import requests
 from models.user import User
+from conf import *
 
 
 def current_user():
@@ -33,6 +35,7 @@ def current_user_required(f):
         if user is None:
             return redirect(url_for('user.login_view'))
         return f(user, *args, **kwargs)
+
     return function
 
 
@@ -47,6 +50,7 @@ def admin_required(f):
             user.save()
             abort(404)
         return f(user, *args, **kwargs)
+
     return function
 
 
@@ -63,6 +67,7 @@ def async(f):
     def function(*args, **kwargs):
         thr = Thread(target=f, args=args, kwargs=kwargs)
         thr.start()
+
     return function
 
 
@@ -73,3 +78,16 @@ def sent_email_config():
     check_code = ''.join([str(i) for i in random.sample(range(0, 9), 6)])
     text_body = '您的注册验证码为:' + check_code
     return subject, sender, recipients, check_code, text_body
+
+
+# 获取UC奇趣百科 json 数据
+def get_max_pos():
+    t = time.time()
+    t = str(t)
+    t = t[:10] + t[11:14]
+    return t
+
+
+def get_content(url, max_pos):
+    content = requests.get(url + '&_max_pos=' + max_pos).content.decode()
+    return json.loads(content)

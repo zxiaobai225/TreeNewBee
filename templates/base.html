@@ -75,9 +75,9 @@
     <div class="nav-wrapper">
     <a href="/" style="margin-left: 20px;"  class="brand-logo left">Tree New Bee</a>
     <ul class="right">
-      <li><a href="/weibo/all">微博</a></li>
-      <li><a href="/chat/index">聊天室</a></li>
-      <li><a href="/board/all">留言&bug反馈</a></li>
+      <li><a href="/weibo">微博</a></li>
+      <li><a href="/chat">聊天室</a></li>
+      <li><a href="/board">留言&bug反馈</a></li>
       <!--
       <li><a href="#4">消息<span class="new badge blue-grey darken-3">3</span></a></li>
       -->
@@ -87,6 +87,10 @@
     </div>
     </nav>
 </div>
+
+{% block header_img %}
+{% endblock header_img %}
+
 <div class="container">
     {% block body %}
     {% endblock body %}

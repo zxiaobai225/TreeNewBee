@@ -9,7 +9,7 @@ main = Blueprint('user', __name__)
 def login_view():
     u = current_user()
     if u is not None:
-        return redirect(url_for('node.index'))
+        return redirect(url_for('qiqu.index'))
     return render_template('login.html')
 
 
@@ -32,7 +32,7 @@ def register():
     try:
         user_id, msg = u.valid_register(form)
     except:
-        msg = '尚未获取验证码'
+        msg = '请先获取验证码'
         return api_response(False, message=msg)
     if user_id is None:
         return api_response(False, message=msg)

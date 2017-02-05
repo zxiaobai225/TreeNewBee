@@ -26,4 +26,3 @@ def date_time():
     valuegmt = time.gmtime(v)
     dt = time.strftime(format, valuegmt)
     return dt
-

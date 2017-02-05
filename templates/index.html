@@ -2,19 +2,87 @@
 
 {% block head %}
     <style>
+    .header-img{
+        background-image: url("/static/img/header.png");
+        height: 100px;
+    }
     .container{
-        width: 80%;
+        width: 500px;
+    }
+    .content{
+        background:white;
+        margin-bottom:20px;
+        border-radius: 5px;
+    }
+    .in-content{
+        padding:20px 0 20px 20px;
+    }
+    .wifi-img{
+        text-align: center;
+    }
+    .like_dislike span{
+        color: #888;
+        margin-right:15px;
+    }
+    #gif-btn{
+        position: absolute;
+        left: 44%;
     }
     </style>
+    <script src="/static/js/index.js"></script>
 {% endblock head %}
 
 {% block title %}Tree New Bee{% endblock title %}
 
+{% block header_img %}
+<div class="header-img">
+</div>
+{% endblock header_img %}
+
 {% block body %}
-<div>
-    <p>大街上的考拉时间来看大家说开了多久阿斯利康大街上的考拉时间来看大家说开了多久
-        阿斯利康大街上的考拉时间来看大家说开了多久阿斯利康大街上的考拉时间来看大家说开了多
-        久阿斯利康大街上的考拉时间来看大家说开了多久阿斯利康大街上的考拉时间来看大家说开了
-        多久阿斯利康</p>
+
+<div class="all-content" data-page="{{ page }}">
+<ul class="cell">
+    {% for d in data %}
+    <li class="content z-depth-3">
+        <div class="in-content">
+            <span><img class="circle" style="width: 50px;height: 50px" src="{{ d.avatar }}"></span>
+            <b style="color:mediumvioletred;position: relative;top:-17px;">{{ d.username }}</b>
+            <p>{{ d.title }}</p>
+            <p>{{ d.content }}</p>
+        </div>
+
+        {% if d.data_gif == '' %}
+        <div class="wifi-img">
+            <img style="width: 480px;" src={{ d.wifi_img_url }}>
+        </div>
+        {% else %}
+        <div class="wifi-img">
+            <img class="gif-img" style="width: 480px;" src="{{ d.wifi_img_url }}" data-gif={{ d.data_gif }}>
+            <button id="gif-btn" class="btn gif-btn">点击图片加载GIF</button>
+        </div>
+        {% endif %}
+
+        {% if d.hot_comment != '' %}
+        <div class="in-content">
+            <p><span style="color: #de5025;">神评论：</span>{{ d.hot_comment }}</p>
+        </div>
+        {% endif %}
+        <div class="like_dislike in-content">
+            <span>顶:{{ d.like }}</span>
+            <span>踩:{{ d.dislike }}</span>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+
+<div class="loading" style="margin-top: 80px;display: none">
+    <p style="text-align: center;font-size: 12px">正在疯狂加载...</p>
+<div class="progress">
+    <div class="indeterminate">
+    </div>
+</div>
 </div>
 {% endblock body %}
