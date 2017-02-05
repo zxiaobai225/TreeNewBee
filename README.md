@@ -2,8 +2,23 @@
 
 测试账号/密码(123456/123456)
 
-####登录注册
-![登录注册](https://app.yinxiang.com/shard/s7/res/881cbe41-1451-4dbd-a184-0a0e9c34c3bc)
+#####登录注册
+![登录注册](http://okwc2urj8.bkt.clouddn.com/denglu.png)
+
+#####主页
+![主页](http://okwc2urj8.bkt.clouddn.com/index.png)
+
+#####微博
+![微博](http://okwc2urj8.bkt.clouddn.com/weibo.png)
+
+#####在线聊天
+![在线聊天](http://okwc2urj8.bkt.clouddn.com/chat.png)
+
+#####留言板
+![留言板](http://okwc2urj8.bkt.clouddn.com/liuyan.png)
+
+#####个人中心
+![个人中心](http://okwc2urj8.bkt.clouddn.com/person.png)
 
 
 ###编程语言
