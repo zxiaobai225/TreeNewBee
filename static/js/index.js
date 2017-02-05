@@ -102,7 +102,6 @@ var bindEventAdd = function () {
         var response = function (r) {
             if (r.success) {
                 $('.all-content').data('page',data.page);
-                $('.loading').css('display','block')
                 for (var i=0; i<r.data.length; i++) {
                     var new_qiqu = $(qiquTemplate(r.data[i]));
                     var qiqu_cell = $('.cell');
@@ -122,6 +121,7 @@ var scrollAddQiqu =function(){
     　　var scrollHeight = $(document).height();
     　　var windowHeight = $(this).height();
     　　if(scrollTop + windowHeight == scrollHeight){
+        $('.loading').css('display','block')
         bindEventAdd();
     　　}
     });
