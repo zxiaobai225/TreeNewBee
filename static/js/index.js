@@ -117,10 +117,13 @@ var bindEventAdd = function () {
 
 var scrollAddQiqu =function(){
     $(window).scroll(function(){
-    　　var scrollTop = $(this).scrollTop();
+    　　var scrollTop = $(document).scrollTop();
     　　var scrollHeight = $(document).height();
     　　var windowHeight = $(this).height();
-    　　if(scrollTop + windowHeight == scrollHeight){
+        // console.log("滚动条到顶部的垂直高度: "+scrollTop);
+        // console.log("页面的文档高度 ："+scrollHeight);
+        // console.log('浏览器的高度：'+windowHeight);
+    　　if(eval(windowHeight+scrollTop) >= eval(scrollHeight - 50)){
         $('.loading').css('display','block')
         bindEventAdd();
     　　}
