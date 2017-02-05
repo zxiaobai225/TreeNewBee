@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="http://okwc2urj8.bkt.clouddn.com/static/css/alertify.min.css">
     <link rel="stylesheet" href="http://okwc2urj8.bkt.clouddn.com/static/css/login.css">
     <title>登录注册</title>
+    <script>
+    var bindEventTestLogin = function () {
+    $('.test-btn').click(function () {
+        var parent = $(this).parents('.login')
+        var data = {
+            username: 123456,
+            password: 123456,
+
+        };
+        var response = function (r) {
+            if (r.success) {
+                successView(parent.parents('.container'))
+                location.href = "/"
+            } else {
+                alertify.error(r.message)
+                $('.login').addClass('animated shake')
+            }
+        };
+        api.userLogin(data, response)
+    })
+    };
+    $(document).ready(function () {
+        bindEventTestLogin();
+    });
+    </script>
 </head>
 <body>
 <div class="container">
@@ -28,6 +53,7 @@
         <br>
         <div class="btn-all">
             <a style="display: block; margin-bottom: 15px;" class="disabled login-btn waves-effect waves-purple btn">登录</a>
+            <a style="display: block; margin-bottom: 15px;background: rgb(0, 152, 236)" class="test-btn waves-effect waves-purple btn">测试号一键登录</a>
             <a style="display: block;" href="#signup" class="waves-effect waves-purple btn go-register">前往注册</a>
         </div>
     </div>
