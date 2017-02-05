@@ -45,7 +45,7 @@ def register():
 @current_user_required
 def logout(user):
     session.pop('user_id')
-    return redirect(url_for('node.index'))
+    return redirect(url_for('qiqu.index'))
 
 
 @main.route('/profile/<username>')
