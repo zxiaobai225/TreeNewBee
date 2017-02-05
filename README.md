@@ -3,7 +3,7 @@
 测试账号/密码(123456/123456)
 
 #####登录注册
-![登录注册](http://okwc2urj8.bkt.clouddn.com/denglu.png)
+![登录注册](http://okwc2urj8.bkt.clouddn.com/dengluzhuce.png)
 
 #####主页
 ![主页](http://okwc2urj8.bkt.clouddn.com/index.png)
