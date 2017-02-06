@@ -22,7 +22,7 @@ var bindBtnLoadGif = function () {
     }else {
         $(loadTemplate()).prependTo($(this).closest('.wifi-img'))
         gif.attr('src',gif_url)
-        $('.gif-btn').addClass('hide')
+        $(this).addClass('hide')
         gif.load(function(){
             $(this).siblings('.img-loading').slideUp('1000')
         });
@@ -39,7 +39,7 @@ var bindImgLoadGif = function () {
     }else {
         $(loadTemplate()).prependTo($(this).closest('.wifi-img'))
         gif.attr('src',gif_url)
-        $('.gif-btn').addClass('hide')
+        $(this).siblings('.gif-btn').addClass('hide')
         gif.load(function(){
             $(this).siblings('.img-loading').slideUp('1000')
         });
@@ -124,7 +124,7 @@ var scrollAddQiqu =function(){
         // console.log("页面的文档高度 ："+scrollHeight);
         // console.log('浏览器的高度：'+windowHeight);
     　　if(eval(windowHeight+scrollTop) >= eval(scrollHeight - 50)){
-        $('.loading').css('display','block')
+        $('.loading').css('display','block');
         bindEventAdd();
     　　}
     });
