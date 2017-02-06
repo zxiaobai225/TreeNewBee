@@ -96,8 +96,10 @@ var qiquTemplate = function (d) {
 
 
 var bindEventAdd = function () {
+        var allContent = $('.all-content');
+        allContent.addClass('noScroll');
         var data = {
-            page: $('.all-content').data('page') + 1
+            page: allContent.data('page') + 1
         };
         var response = function (r) {
             if (r.success) {
@@ -105,10 +107,12 @@ var bindEventAdd = function () {
                 for (var i=0; i<r.data.length; i++) {
                     var new_qiqu = $(qiquTemplate(r.data[i]));
                     var qiqu_cell = $('.cell');
-                    new_qiqu.appendTo(qiqu_cell).slideDown()
+                    new_qiqu.appendTo(qiqu_cell).slideDown();
                 }
+                allContent.removeClass('noScroll');
             } else {
-                alertify.error(r.message)
+                allContent.removeClass('noScroll');
+                alertify.error('加载失败')
             }
         };
         api.addQiqu(data.page, response)
@@ -123,9 +127,13 @@ var scrollAddQiqu =function(){
         // console.log("滚动条到顶部的垂直高度: "+scrollTop);
         // console.log("页面的文档高度 ："+scrollHeight);
         // console.log('浏览器的高度：'+windowHeight);
-    　　if(eval(windowHeight+scrollTop) >= eval(scrollHeight - 50)){
-        $('.loading').css('display','block');
-        bindEventAdd();
+    　　if(eval(windowHeight+scrollTop) >= eval(scrollHeight - 500)){
+        if($('.all-content').hasClass('noScroll')){
+            return false
+        }else {
+            $('.loading').css('display','block');
+            bindEventAdd();
+        }
     　　}
     });
 };

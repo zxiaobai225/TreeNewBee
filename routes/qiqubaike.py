@@ -10,7 +10,7 @@ main = Blueprint('qiqu', __name__)
 @current_user_required
 def index(user):
     page = request.args.get('page', 0, type=int)
-    max_pos = str(int(get_max_pos())-3000000*page)
+    max_pos = str(int(get_max_pos())-1800000*page)
     content = get_content(QIQU, max_pos)
     result = []
     l = len(content['data'])
