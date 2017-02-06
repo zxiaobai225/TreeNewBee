@@ -28,17 +28,15 @@ def login():
 @main.route('/register', methods=['POST'])
 def register():
     form = request.form
-    u = User.query.filter_by(email=form['email']).first()
-    try:
-        user_id, msg = u.valid_register(form)
-    except:
-        msg = '请先获取验证码'
-        return api_response(False, message=msg)
+    u = User(form)
+    user_id, msgs = u.valid_register()
     if user_id is None:
-        return api_response(False, message=msg)
+        return api_response(message=msgs)
+    u.avatar = 'avatar%s.jpeg' % ''.join([str(i) for i in random.sample(range(0, 9), 1)])
+    u.save()
     session.permanent = True
-    session['user_id'] = user_id
-    return api_response(True, message=msg)
+    session['user_id'] = u.id
+    return api_response(True)
 
 
 @main.route('/logout')

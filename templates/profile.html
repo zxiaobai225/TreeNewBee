@@ -3,7 +3,7 @@
 {% block title %}个人中心{% endblock title %}
 
 {% block head %}
-    <script src="http://okwc2urj8.bkt.clouddn.com/static/js/profile.js"></script>
+    <script src="/static/js/profile.js"></script>
     <style>
     .profile{
         min-width: 800px;
@@ -31,7 +31,7 @@
     <label for="password">密码</label>
     </div><br>
     <div class="input-field">
-    <input disabled type="text" name="email" value="{{ user.email }}">
+    <input type="text" class="email" name="email" value="{{ user.email }}">
     <label for="email">E-mail</label>
     </div><br>
     <div class="input-field">

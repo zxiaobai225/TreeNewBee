@@ -59,31 +59,29 @@ class User(db.Model, ModelMixin):
     def update(self, form):
         self.password = form.get('password', self.password)
         self.qq = form.get('qq', self.qq)
+        self.email = form.get('email', self.email)
         self.signature = form.get('signature', self.signature)
         self.save()
 
     # 验证注册用户的合法性的
-    def valid_register(self, form):
-        valid_username = User.query.filter_by(username=form['username']).first() == None
-        valid_code = User.query.filter_by(code=form['code'], email=form['email']).first() != None
-        valid_username_len = 16 >= len(form['username']) >= 6
-        valid_password_len = 16 >= len(form['password']) >= 6
+    def valid_register(self):
+        valid_username = User.query.filter_by(username=self.username).first() == None
+        valid_username_len = 16 >= len(self.username) >= 6
+        valid_password_len = 16 >= len(self.password) >= 6
         err_msgs = ''
 
         u_match = r'^[\w]{6,16}$'
 
-        if (not re.match(u_match, form['username'])):
+        if (not re.match(u_match, self.username)):
             err_msgs += '用户名包含非法字符<br>'
-        elif (not re.search('[^_]+', form['username'])):
+        elif (not re.search('[^_]+', self.username)):
             err_msgs += '用户名不能全为下划线<br>'
 
-        if (not re.match(u_match, form['password'])):
+        if (not re.match(u_match, self.password)):
             err_msgs += '密码包含非法字符<br>'
-        elif (not re.search('[^_]+', form['password'])):
+        elif (not re.search('[^_]+', self.password)):
             err_msgs += '密码不能全为下划线<br>'
 
-        if not valid_code:
-            err_msgs += '验证码错误<br>'
         if not valid_username:
             err_msgs += '用户名已存在<br>'
         if not valid_username_len:
@@ -91,15 +89,10 @@ class User(db.Model, ModelMixin):
         if not valid_password_len:
             err_msgs += '密码长度不合法<br>'
 
-        if form['code'] == 'iamgod':
-            self.admin = 'true'
-            self.save()
-            return None, '成功取得管理员权限'
-
         if err_msgs == '':
             self.created_time = date_time()
-            self.username = form['username']
-            self.password = form['password']
+            self.username = self.username
+            self.password = self.password
             self.save()
             return self.id, '注册成功'
         return None, err_msgs

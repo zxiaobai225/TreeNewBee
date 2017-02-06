@@ -14,7 +14,6 @@ from models.weibo import Weibo, WeiboComment
 
 from routes.chat import main as routes_chat
 from routes.user import main as routes_user
-from routes.mail import main as routes_mail
 from routes.profile import main as routes_profile
 from routes.board import main as routes_board
 from routes.weibo import main as routes_weibo
@@ -28,7 +27,6 @@ manager = Manager(app)
 
 def register_routes(app):
     app.register_blueprint(routes_user)
-    app.register_blueprint(routes_mail, url_prefix='/mail')
     app.register_blueprint(routes_profile, url_prefix='/profile')
     app.register_blueprint(routes_board, url_prefix='/board')
     app.register_blueprint(routes_chat, url_prefix='/chat')

@@ -43,8 +43,6 @@ var bindEventRegister = function () {
         var data = {
             username: parent.find(':input.username1').val(),
             password: parent.find(':input.password1').val(),
-            email: parent.find(':input.email').val(),
-            code: parent.find(':input.code').val(),
         };
 
         $('.register').removeClass('animated shake')
@@ -61,44 +59,44 @@ var bindEventRegister = function () {
     })
 };
 
-var bindEventGetcode = function () {
-    $('.get-code').click(function () {
-
-        var parent = $(this).parents('.register')
-
-        var data = {
-            email: parent.find(':input.email').val(),
-        };
-
-        $('.register').removeClass('animated shake')
-        var response = function (r) {
-            if (r.success) {
-                $(".get-code").attr("disabled", true);
-                var count = 30;
-                var countdown = setInterval(CountDown, 1000);
-                function CountDown() {
-                    $(".get-code").attr("disabled", true);
-                    $(".get-code").text("稍等"+count+"s");
-                    if (count == 0) {
-                        $(".get-code").text("重新获取").removeAttr("disabled");
-                        clearInterval(countdown);
-                    }
-                    count--;
-                }
-                alertify.success(r.message)
-            } else {
-                alertify.error(r.message)
-                $('.register').addClass('animated shake')
-            }
-        };
-        api.userGetcode(data, response)
-    })
-};
+// var bindEventGetcode = function () {
+//     $('.get-code').click(function () {
+//
+//         var parent = $(this).parents('.register')
+//
+//         var data = {
+//             email: parent.find(':input.email').val(),
+//         };
+//
+//         $('.register').removeClass('animated shake')
+//         var response = function (r) {
+//             if (r.success) {
+//                 $(".get-code").attr("disabled", true);
+//                 var count = 30;
+//                 var countdown = setInterval(CountDown, 1000);
+//                 function CountDown() {
+//                     $(".get-code").attr("disabled", true);
+//                     $(".get-code").text("稍等"+count+"s");
+//                     if (count == 0) {
+//                         $(".get-code").text("重新获取").removeAttr("disabled");
+//                         clearInterval(countdown);
+//                     }
+//                     count--;
+//                 }
+//                 alertify.success(r.message)
+//             } else {
+//                 alertify.error(r.message)
+//                 $('.register').addClass('animated shake')
+//             }
+//         };
+//         api.userGetcode(data, response)
+//     })
+// };
 
 var bindEvents = function () {
     bindEventLogin();
     bindEventRegister();
-    bindEventGetcode();
+    // bindEventGetcode();
 };
 
 $(document).ready(function () {

@@ -8,6 +8,7 @@ var bindEventUpdate = function () {
         var data = {
             password: parent.find(':input.password').val(),
             qq: parent.find(':input.qq').val(),
+            email: parent.find(':input.email').val(),
             signature: parent.find('.signature').val(),
         };
         var response = function (r) {
