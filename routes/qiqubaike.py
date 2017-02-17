@@ -28,8 +28,12 @@ def index(user):
                 wifi_img_url = media_data[0].get('wifi_img_url', '')
             except:
                 wifi_img_url = ''
-            if media_data[0].get('format', '') == 'GIF':
-                data_gif = media_data[0]['origin_img_url'].get('origin_pic_url', '')
+            try:
+                if media_data[0].get('format', '') == 'GIF':
+                    data_gif = media_data[0]['origin_img_url'].get('origin_pic_url', '')
+            except:
+                if media_data.get('format', '') == 'GIF':
+                    data_gif = media_data['origin_img_url'].get('origin_pic_url', '')
         r = dict(
                  avatar=c[i]['avatar'],
                  username=c[i]['user_name'],
