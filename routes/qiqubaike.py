@@ -15,6 +15,7 @@ def index(user):
     result = []
     l = len(content['data'])
     c = content['data']
+    print(c)
     for i in range(l):
         hot_comment = c[i].get('hot_comment', '')
         media_data = c[i].get('media_data', '')
@@ -28,12 +29,11 @@ def index(user):
                 wifi_img_url = media_data[0].get('wifi_img_url', '')
             except:
                 wifi_img_url = ''
-            try:
+            if len(media_data) > 0:
                 if media_data[0].get('format', '') == 'GIF':
                     data_gif = media_data[0]['origin_img_url'].get('origin_pic_url', '')
-            except:
-                if media_data.get('format', '') == 'GIF':
-                    data_gif = media_data['origin_img_url'].get('origin_pic_url', '')
+            else:
+                data_gif = ''
         r = dict(
                  avatar=c[i]['avatar'],
                  username=c[i]['user_name'],
