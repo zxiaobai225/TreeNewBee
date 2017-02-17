@@ -24,7 +24,10 @@ def index(user):
             hot_comment = hot_comment.get('message', '')
 
         if media_data != '':
-            wifi_img_url = media_data[0].get('wifi_img_url', '')
+            try:
+                wifi_img_url = media_data[0].get('wifi_img_url', '')
+            except:
+                wifi_img_url = ''
             if media_data[0].get('format', '') == 'GIF':
                 data_gif = media_data[0]['origin_img_url'].get('origin_pic_url', '')
         r = dict(
