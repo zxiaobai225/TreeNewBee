@@ -33,14 +33,13 @@
 - [Flask-Migrate](https://github.com/miguelgrinberg/Flask-Migrate)
 - [Flask-Script](https://github.com/smurfix/flask-script)
 - [SQLite](https://www.sqlite.org/)
-- [MySQL](https://www.mysql.com/)
+- [Redis](https://redis.io/)
 
 ###前 端
 
 - [Materialize](https://github.com/Dogfalo/materialize)
 - [Animate.css](https://github.com/daneden/animate.css/)
 - [jQuery](https://github.com/jquery/jquery)
-- [Bootstrap](https://github.com/twbs/bootstrap)
 - [alertify.js](https://github.com/fabien-d/alertify.js)
 
 ###部 署
