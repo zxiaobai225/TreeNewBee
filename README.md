@@ -1,4 +1,4 @@
-# 个人网站 [bestmayday.cc](http://bestmayday.cc)
+#  [个人网站](http://www.bestmayday.cc)
 
 测试账号/密码(123456/123456)
 
